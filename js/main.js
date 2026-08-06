@@ -204,16 +204,16 @@
   var termRestart = $('#termRestart');
 
   var TERM_SCRIPT = [
-    { t: 'papeer search --axis "нейросети в диагностике"', cls: 't-cyan', p: 4 },
-    { t: '→ Semantic Scholar … 200 OK · 47 работ', cls: 't-violet', p: 14 },
-    { t: '→ OpenAlex …… 200 OK · 62 работы', cls: 't-violet', p: 26 },
-    { t: '→ Crossref …… 200 OK · 31 работа', cls: 't-violet', p: 36 },
-    { t: '→ arXiv ……… 200 OK · 28 работ', cls: 't-violet', p: 46 },
-    { t: 'дедупликация по DOI: 168 → 112 уникальных', cls: 't-yellow', p: 58 },
-    { t: 'скоринг релевантности (0–10): done за 3.2s', cls: '', p: 70 },
-    { t: 'PDF: 112 задач · arXiv → S2 → OpenAlex → Unpaywall', cls: '', p: 82 },
-    { t: '✓ скачано 86/112 PDF · 14 open access · 12 только абстракты', cls: 't-green', p: 94 },
-    { t: '✓ BibTeX: references.bib обновлён · готово!', cls: 't-green', p: 100 }
+    { t: '[нейросети в диагностике] запрос "neural networks diagnosis"', cls: 't-topic', p: 8 },
+    { t: '  OpenAlex: 62 papers (840ms)', cls: 't-green', p: 20 },
+    { t: '  Crossref: 31 papers (1210ms)', cls: 't-green', p: 32 },
+    { t: '  Semantic Scholar: 47 papers (930ms)', cls: 't-green', p: 44 },
+    { t: '  arXiv: 28 papers (1520ms)', cls: 't-green', p: 56 },
+    { t: '  итого по запросу: 168 papers', cls: 't-dim', p: 64 },
+    { t: '[AI]: сгенерирован запрос "deep learning radiology"', cls: 't-violet t-strong', p: 74 },
+    { t: '  Semantic Scholar: ошибка timeout', cls: 't-red', p: 82 },
+    { t: '[нейросети в диагностике] готово: 112 сохранено (168 → 112)', cls: 't-violet t-strong', p: 92 },
+    { t: '  скоринг релевантности (0–10) · готово', cls: 't-green', p: 100 }
   ];
 
   var termToken = 0;
@@ -235,6 +235,7 @@
         el.innerHTML = '<span class="term__time">' + nowTime(0) + '</span><span class="' + line.cls + '">' + line.t + '</span>';
         termBody.appendChild(el);
       });
+      termBody.scrollTop = termBody.scrollHeight;
       if (termFill) termFill.style.width = '100%';
       return;
     }
@@ -267,6 +268,7 @@
         if (myToken !== termToken) return;
         ch += 2;
         textSpan.textContent = text.slice(0, ch);
+        termBody.scrollTop = termBody.scrollHeight;
         if (ch < text.length) {
           setTimeout(typeChar, stepMs);
         } else {
