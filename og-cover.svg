@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="badge" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#46e0c0"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#46e0c0"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0.85" cy="0.08" r="0.6">
+      <stop offset="0" stop-color="#7c5cff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0.05" cy="0.95" r="0.5">
+      <stop offset="0" stop-color="#46e0c0" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#46e0c0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="1200" height="630" fill="#0a0c12"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- [P] badge -->
+  <g transform="translate(96 199)">
+    <rect width="232" height="232" rx="52" fill="url(#badge)"/>
+    <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" transform="scale(0.2266)">
+      <path d="M312 300 H232 V724 H312" stroke-width="46"/>
+      <path d="M712 300 H792 V724 H712" stroke-width="46"/>
+      <path d="M466 700 V328 A100 100 0 0 1 466 528" stroke-width="70"/>
+    </g>
+  </g>
+
+  <!-- wordmark + tagline -->
+  <g font-family="'Unbounded','Segoe UI',Helvetica,Arial,sans-serif">
+    <text x="400" y="292" font-size="112" font-weight="800" fill="#ffffff" letter-spacing="-2">papeer</text>
+    <rect x="404" y="330" width="88" height="6" rx="3" fill="url(#accent)"/>
+  </g>
+  <g font-family="'Inter','Segoe UI',Helvetica,Arial,sans-serif">
+    <text x="402" y="392" font-size="34" font-weight="500" fill="#c8ccdc">Обзор литературы за вечера, а не за недели</text>
+    <text x="402" y="446" font-size="25" font-weight="400" fill="#8a90a4">Локальный конвейер: поиск · PDF · скрининг · AI-summary</text>
+  </g>
+
+  <!-- footer chips -->
+  <g font-family="'JetBrains Mono','SF Mono',monospace" font-size="23">
+    <text x="402" y="536" fill="#8a90a4">macOS · Windows · Linux<tspan dx="40" fill="#46e0c0">·  Бесплатно · MIT</tspan></text>
+  </g>
+</svg>

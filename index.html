@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- No-JS guard: mark that JS is available so reveal-hiding only applies with JS. -->
+  <script>document.documentElement.classList.add('js');</script>
+  <title>Papeer — обзор литературы за вечера, а не за недели</title>
+  <meta name="description" content="Бесплатное десктоп-приложение для обзора литературы: поиск в 4 базах, скоринг 0–10, горячие клавиши, PDF и BibTeX в один клик. Всё локально.">
+  <meta name="keywords" content="обзор литературы, диссертация, академические статьи, Semantic Scholar, OpenAlex, Crossref, arXiv, BibTeX, papeer">
+  <meta name="author" content="papeer">
+  <meta property="og:title" content="Papeer — обзор литературы за вечера, а не за недели">
+  <meta property="og:description" content="Бесплатный поиск по 4 академическим базам, скоринг 0–10, разбор горячими клавишами, PDF и BibTeX в один клик. Всё локально.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:url" content="https://getpapeer.app/">
+  <meta property="og:site_name" content="Papeer">
+  <meta property="og:image" content="https://getpapeer.app/og-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="papeer — обзор литературы за вечера, а не за недели">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Papeer — обзор литературы за вечера, а не за недели">
+  <meta name="twitter:description" content="Бесплатный поиск по 4 академическим базам, скоринг 0–10, горячие клавиши, PDF и BibTeX. macOS · Windows · Linux.">
+  <meta name="twitter:image" content="https://getpapeer.app/og-cover.png">
+  <link rel="canonical" href="https://getpapeer.app/">
+  <meta name="theme-color" content="#0a0c12">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#top" class="logo" aria-label="papeer — на главную">
+        <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M10 6 H5 V26 H10" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M22 6 H27 V26 H22" stroke="url(#lg1)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M14.5 26 V6 A4 4 0 0 1 14.5 14" stroke="url(#lg1)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="lg1" x1="0" y1="0" x2="32" y2="32">
+              <stop offset="0" stop-color="#7c5cff"/>
+              <stop offset="1" stop-color="#46e0c0"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <span class="logo__text">papeer</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#how" class="nav__link">Как это работает</a>
+        <a href="#features" class="nav__link">Возможности</a>
+        <a href="#download" class="nav__link">Скачать</a>
+        <a href="#pricing" class="nav__link">Цена</a>
+        <a href="#faq" class="nav__link">FAQ</a>
+      </nav>
+      <div class="header__actions">
+        <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener" class="header__repo" aria-label="Репозиторий">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+            <path d="M9 18c-4.51 2-5-2-7-2"/>
+          </svg>
+          <span>Код</span>
+        </a>
+        <a href="#download" class="btn btn--small btn--primary header__cta">Скачать</a>
+        <button class="burger" id="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="blob blob--violet"></div>
+        <div class="blob blob--cyan"></div>
+        <div class="hero__glow" id="heroGlow"></div>
+      </div>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <div class="badge reveal">
+            <span class="badge__dot"></span>
+            v1.1.0 — стабильный релиз · macOS · Windows · Linux
+          </div>
+          <h1 class="hero__title reveal">
+            Обзор литературы за&nbsp;<span class="grad-text">вечера</span>, а&nbsp;не&nbsp;за&nbsp;недели.
+          </h1>
+          <p class="hero__sub reveal">
+            papeer бесплатно ищет статьи сразу в Semantic Scholar, OpenAlex, Crossref и arXiv,
+            оценивает релевантность каждой по шкале 0–10, помогает разобрать сотни работ
+            горячими клавишами — и сам качает PDF и собирает BibTeX.
+            Всё локально, на вашем компьютере.
+          </p>
+          <div class="hero__cta reveal">
+            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener"
+               class="btn btn--primary btn--magnetic btn--glow" data-magnetic>
+              <span class="btn__label">Скачать бесплатно</span>
+            </a>
+            <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener" class="btn btn--ghost btn--magnetic" data-magnetic>
+              <span class="btn__label">Исходный код</span>
+            </a>
+          </div>
+          <p class="hero__micro reveal">Без регистрации. Без подписки. Без «пробного периода». Просто бесплатно.</p>
+        </div>
+
+        <div class="hero__visual reveal">
+          <!-- CSS app-window mockup -->
+          <div class="appwin" id="appwin" aria-hidden="true">
+            <div class="appwin__bar">
+              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+              <span class="appwin__title">papeer — ось «нейросети в диагностике»</span>
+            </div>
+            <div class="appwin__body">
+              <div class="appwin__side">
+                <div class="appwin__side-item appwin__side-item--active">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+                  Выдача
+                </div>
+                <div class="appwin__side-item">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                  Оси
+                </div>
+                <div class="appwin__side-item">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+                  Загрузки
+                </div>
+                <div class="appwin__side-item">
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>
+                  Статистика
+                </div>
+                <div class="appwin__side-foot">
+                  <span class="dot dot--green"></span> локально · SQLite
+                </div>
+              </div>
+              <div class="appwin__list">
+                <div class="appwin__row appwin__row--sel">
+                  <span class="score score--hi">9.2</span>
+                  <div class="appwin__row-main">
+                    <span class="appwin__row-title">Deep learning for MRI tumor segmentation</span>
+                    <span class="appwin__row-meta">2023 · Nature MI · цит. 412</span>
+                  </div>
+                  <span class="st st--acc">принято</span>
+                </div>
+                <div class="appwin__row">
+                  <span class="score score--hi">8.7</span>
+                  <div class="appwin__row-main">
+                    <span class="appwin__row-title">Transformers in clinical NLP: a survey</span>
+                    <span class="appwin__row-meta">2024 · arXiv · цит. 96</span>
+                  </div>
+                  <span class="st st--new">новая</span>
+                </div>
+                <div class="appwin__row">
+                  <span class="score score--mid">6.4</span>
+                  <div class="appwin__row-main">
+                    <span class="appwin__row-title">Radiology reports generation with LLMs</span>
+                    <span class="appwin__row-meta">2022 · IEEE Access · цит. 58</span>
+                  </div>
+                  <span class="st st--new">новая</span>
+                </div>
+                <div class="appwin__row">
+                  <span class="score score--mid">5.1</span>
+                  <div class="appwin__row-main">
+                    <span class="appwin__row-title">Automated triage of CT scans</span>
+                    <span class="appwin__row-meta">2021 · PLOS ONE · цит. 33</span>
+                  </div>
+                  <span class="st st--rej">отклонено</span>
+                </div>
+                <div class="appwin__row">
+                  <span class="score score--low">2.8</span>
+                  <div class="appwin__row-main">
+                    <span class="appwin__row-title">Blockchain in hospital management</span>
+                    <span class="appwin__row-meta">2019 · MDPI · цит. 12</span>
+                  </div>
+                  <span class="st st--rej">отклонено</span>
+                </div>
+                <div class="appwin__hint">j/k — навигация · a — принять · r — отклонить · Enter — аннотация</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- terminal -->
+          <div class="term" aria-hidden="false">
+            <div class="term__bar">
+              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+              <span class="term__title">живой журнал поиска</span>
+              <button class="term__restart" id="termRestart" type="button" title="Запустить заново" aria-label="Запустить заново">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36"/><path d="M21 3v6h-6"/></svg>
+              </button>
+            </div>
+            <div class="term__body" id="termBody"></div>
+            <div class="term__progress"><div class="term__progress-fill" id="termFill"></div></div>
+          </div>
+        </div>
+      </div>
+      <a class="hero__scrollhint" href="#pain" aria-label="Листайте вниз">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg>
+      </a>
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="stats section" id="stats">
+      <div class="container">
+        <div class="stats__grid reveal-group">
+          <div class="stat">
+            <div class="stat__num" data-counter data-target="4">0</div>
+            <div class="stat__label">академические базы<br>одним запросом</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-counter data-target="5">0</div>
+            <div class="stat__label">источников открытых<br>полных текстов</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num"><span data-counter data-target="0">0</span>&nbsp;₽</div>
+            <div class="stat__label">открыто (MIT).<br>Без тарифов</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-counter data-target="0">0</div>
+            <div class="stat__label">аккаунтов<br>и регистраций</div>
+          </div>
+          <div class="stat">
+            <div class="stat__num" data-counter data-target="3">0</div>
+            <div class="stat__label">платформы:<br>macOS · Windows · Linux</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PAIN ===== -->
+    <section class="pain section" id="pain">
+      <div class="container">
+        <h2 class="pain__heading reveal">Знакомо?</h2>
+        <div class="pain__wall reveal-group">
+          <blockquote class="pain__quote">
+            <span class="pain__num">47</span>
+            <p>вкладок браузера.</p>
+          </blockquote>
+          <blockquote class="pain__quote">
+            <span class="pain__num">Excel</span>
+            <p>с полупустыми строками.</p>
+          </blockquote>
+          <blockquote class="pain__quote">
+            <span class="pain__num">«Full text not available»</span>
+            <p>снова и снова.</p>
+          </blockquote>
+          <blockquote class="pain__quote">
+            <span class="pain__num">3-я неделя</span>
+            <p>обзора. А конца не видно.</p>
+          </blockquote>
+        </div>
+        <p class="pain__punch reveal">Это не делается вручную. Это делает <span class="grad-text">papeer</span>.</p>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section class="how section" id="how">
+      <div class="container">
+        <h2 class="section__title reveal">Четыре шага <span class="grad-text">до чистого обзора</span></h2>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step__num">01</div>
+            <h3 class="step__title">Сформулируйте тему</h3>
+            <p class="step__text">Ключевые слова, must-ключи, boost-ключи. Одна тема = одна «ось» исследования. Сколько осей — столько параллельных потоков литературы.</p>
+            <div class="step__art step__art--chips" aria-hidden="true">
+              <span class="chip chip--must">must: deep learning</span>
+              <span class="chip chip--must">must: MRI</span>
+              <span class="chip chip--boost">boost: segmentation</span>
+              <span class="chip">нейросети · диагностика · 2019–2026</span>
+            </div>
+          </article>
+
+          <article class="step reveal">
+            <div class="step__num">02</div>
+            <h3 class="step__title">Получите чистую выдачу</h3>
+            <p class="step__text">4 базы параллельно, дедупликация по DOI, скор релевантности 0–10. Мусор отсеивается сам. Попробуйте сами — виджет живой:</p>
+            <div class="scorer" id="scorer">
+              <div class="scorer__fields">
+                <label class="scorer__field">
+                  <span class="scorer__label">must-ключи <em>(обязательны)</em></span>
+                  <input type="text" id="mustInput" class="scorer__input" value="нейросеть, диагностика" placeholder="напр.: нейросеть" autocomplete="off">
+                </label>
+                <label class="scorer__field">
+                  <span class="scorer__label">boost-ключи <em>(усиливают)</em></span>
+                  <input type="text" id="boostInput" class="scorer__input" value="мрт, опухоль" placeholder="напр.: мрт" autocomplete="off">
+                </label>
+              </div>
+              <div class="scorer__paper">
+                <div class="scorer__paper-title">Глубокие нейронные сети для диагностики опухолей по снимкам МРТ</div>
+                <div class="scorer__paper-meta">2023 · Journal of Biomedical Imaging · Scopus Q1</div>
+              </div>
+              <div class="scorer__result">
+                <div class="scorer__bar"><div class="scorer__bar-fill" id="scoreFill"></div></div>
+                <div class="scorer__value"><span id="scoreValue" class="scorer__value-num">0.0</span><span class="scorer__value-max">/10</span></div>
+                <div class="scorer__verdict" id="scoreVerdict"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="step reveal">
+            <div class="step__num">03</div>
+            <h3 class="step__title">Разберите поток горячими клавишами</h3>
+            <p class="step__text">j/k листаете, a — берёте, r — в отвал, Enter — аннотация. Сотни решений в час.</p>
+            <div class="kbd-demo" id="kbdDemo" tabindex="0" role="application"
+                 aria-label="Демо горячих клавиш: j — вниз, k — вверх, a — принять, r — отклонить">
+              <div class="kbd-demo__hint">
+                <span class="kbd-demo__hint-text">Наведите или нажмите сюда, затем:</span>
+                <kbd>j</kbd><kbd>k</kbd><kbd>a</kbd><kbd>r</kbd>
+                <button class="kbd-demo__reset" id="kbdReset" type="button">Сбросить</button>
+              </div>
+              <ul class="kbd-demo__list" id="kbdList"></ul>
+              <div class="kbd-demo__status" id="kbdStatus" role="status" aria-live="polite">готово · 0 принято · 0 отклонено</div>
+              <div class="kbd-demo__touchhint">Коснитесь строки, чтобы менять статус: принято → отклонено → сброс.</div>
+            </div>
+          </article>
+
+          <article class="step reveal">
+            <div class="step__num">04</div>
+            <h3 class="step__title">Скачайте PDF и экспортируйте</h3>
+            <p class="step__text">Цепочка из 5 источников находит открытые полные тексты, BibTeX и CSV — в один клик, статистика по осям — для отчётов руководителю.</p>
+            <div class="step__art step__art--files" aria-hidden="true">
+              <div class="filechip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+                review.pdf <span class="filechip__ok">✓ 5/5 источников</span>
+              </div>
+              <div class="filechip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                references.bib <span class="filechip__ok">✓ BibTeX</span>
+              </div>
+              <div class="filechip">
+                <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+                report.csv <span class="filechip__ok">✓ по осям</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="features section" id="features">
+      <div class="container">
+        <h2 class="section__title reveal">Сделано, чтобы <span class="grad-text">выжимать недели в часы</span></h2>
+        <div class="features__grid reveal-group">
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
+            </div>
+            <h3 class="fcard__title">Четыре базы. Один запрос. Ноль вкладок.</h3>
+            <p class="fcard__text">Semantic Scholar, OpenAlex, Crossref и arXiv ищутся параллельно. Дубли сливаются по DOI — вы видите чистую выдачу, а не четыре каши.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
+            </div>
+            <h3 class="fcard__title">300 статей за час. Без мыши.</h3>
+            <p class="fcard__text">Скор 0–10 уже проставлен, остаётся листать j/k и жать a/r. Руки не покидают клавиатуру — темп не падает.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+            </div>
+            <h3 class="fcard__title">«Full text not available»? Это не наша проблема.</h3>
+            <p class="fcard__text">5 источников открытых полных текстов: arXiv → Semantic Scholar → OpenAlex → Unpaywall → Crossref, плюс headless Chrome против Akamai (MDPI, Springer).</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="m9 7 6 4-6 4z" opacity="0"/></svg>
+            </div>
+            <h3 class="fcard__title">BibTeX по одному клику.</h3>
+            <p class="fcard__text">Готовый .bib для LaTeX и CSV для отчётов. Вставили в диссертацию — и пошли дальше по тексту.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>
+            </div>
+            <h3 class="fcard__title">Фильтры, которые складываются. Как Lego.</h3>
+            <p class="fcard__text">Ось, статус, скор, годы, количество цитат — комбинируйте как угодно. Статистика-дашборды показывают картину по каждой оси.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M12 15v3"/></svg>
+            </div>
+            <h3 class="fcard__title">Ваша база. Ваш компьютер. Точка.</h3>
+            <p class="fcard__text">SQLite локально, сеть — только к API баз и скачивание PDF. Ничего не отправляется, кроме явно вызванных вами запросов к API. Ни аккаунтов, ни «облака».</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DOWNLOAD ===== -->
+    <section class="download section" id="download">
+      <div class="container">
+        <h2 class="section__title reveal">Скачать <span class="grad-text">papeer v1.1.0</span></h2>
+        <p class="section__sub reveal">Всё бесплатно. Всё под вашу платформу. Одна кнопка — и вы в деле.</p>
+
+        <div class="os-grid reveal-group">
+          <article class="os-card" data-os-card="macos">
+            <span class="os-card__badge">Ваша система</span>
+            <div class="os-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.94c1.5 0 2.75 1.06 4 1.06 3 0 6-8 6-12.22A4.91 4.91 0 0 0 17 5c-1.5 0-2.5 1-3.5 1s-2.31-1-3.5-1C7 5 4 9 4 13.5c0 3.5 3 7.44 5 7.44 1.25 0 1.5 0 3 0z" opacity="0"/><path d="M15.2 4.6c.9-1.1 1.4-2.3 1.3-3.6-1.3.1-2.6.8-3.4 1.8-.8.9-1.5 2.2-1.3 3.5 1.3.1 2.6-.6 3.4-1.7z"/><path d="M12.8 8.6c.8 0 2.3-1.2 4.2-1 2.4.2 3.9 1.7 3.9 1.7s-2.2 1.2-2.2 4.1c0 3.3 2.9 4.4 2.9 4.4s-2 5.7-4.8 5.7c-1.3 0-2.3-.9-3.6-.9s-2.3.9-3.7.9C6.8 23.5 3 17 3 13.4 3 9.9 5.5 7.7 8.1 7.7c1.4 0 2.6 1 3.7 1z" transform="translate(0 .5) scale(.82) translate(2.4 1)"/></svg>
+            </div>
+            <h3 class="os-card__name">macOS</h3>
+            <p class="os-card__spec">Universal · Intel + Apple Silicon</p>
+            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic><span class="btn__label">Скачать для macOS</span></a>
+          </article>
+
+          <article class="os-card" data-os-card="windows">
+            <span class="os-card__badge">Ваша система</span>
+            <div class="os-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 5.5 10.5 4.4v7.3H3zM11.6 4.2 21 2.8v8.8h-9.4zM3 12.4h7.5v7.3L3 18.6zM11.6 12.4H21v8.8l-9.4-1.4z"/></svg>
+            </div>
+            <h3 class="os-card__name">Windows</h3>
+            <p class="os-card__spec">x64 · установщик и portable</p>
+            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic><span class="btn__label">Скачать для Windows</span></a>
+          </article>
+
+          <article class="os-card" data-os-card="linux">
+            <span class="os-card__badge">Ваша система</span>
+            <div class="os-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c-2.2 0-3.5 2.2-3.5 4.5 0 1.4.3 2.7.8 3.9-1 .8-2.3 2-2.3 4 0 1 .3 2 .8 2.7-.5.3-1.3 1-1.3 2.2 0 1.6 1.9 2.7 3.8 2.7h3.4c1.9 0 3.8-1.1 3.8-2.7 0-1.2-.8-1.9-1.3-2.2.5-.7.8-1.7.8-2.7 0-2-1.3-3.2-2.3-4 .5-1.2.8-2.5.8-3.9C15.5 4.2 14.2 2 12 2Z"/><path d="M9.3 11.5c.9.6 1.9.9 2.7.9s1.8-.3 2.7-.9"/></svg>
+            </div>
+            <h3 class="os-card__name">Linux</h3>
+            <p class="os-card__spec">amd64 · .AppImage / .deb / .rpm</p>
+            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic><span class="btn__label">Скачать для Linux</span></a>
+          </article>
+        </div>
+
+        <!-- first-run notes (always visible) -->
+        <div class="firstrun">
+          <h3 class="firstrun__title">Первый запуск: приложение не подписано платным сертификатом</h3>
+          <p class="firstrun__lead">papeer — открытый некоммерческий проект без сертификатов Apple Developer / Microsoft. Система может предупредить при первом запуске — это нормально:</p>
+          <div class="firstrun__grid">
+            <div class="firstrun__note">
+              <h4>Windows · SmartScreen</h4>
+              <p>Если появится синее окно «Система Windows защитила ваш компьютер» — нажмите <strong>«Подробнее»</strong>, затем <strong>«Выполнить в любом случае»</strong>.</p>
+            </div>
+            <div class="firstrun__note">
+              <h4>macOS · Gatekeeper</h4>
+              <p>Если macOS сообщает, что приложение «повреждено» или не может быть проверено, — снимите карантин командой:</p>
+              <div class="cmdline">
+                <code>xattr -cr /Applications/papeer.app</code>
+                <button class="copybtn" type="button" data-copy="xattr -cr /Applications/papeer.app">Копировать</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- install notes -->
+        <div class="install" id="installNotes">
+          <button class="install__toggle" id="installToggle" type="button" aria-expanded="false">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+            Заметки по установке
+          </button>
+          <div class="install__body" id="installBody">
+            <div class="install__cols">
+              <div class="install__note" data-note="macos">
+                <h4>macOS</h4>
+                <p>Приложение не подписано сертификатом Apple Developer. После распаковки выполните один раз:</p>
+                <div class="cmdline">
+                  <code>xattr -cr /Applications/papeer.app</code>
+                  <button class="copybtn" type="button" data-copy="xattr -cr /Applications/papeer.app">Копировать</button>
+                </div>
+              </div>
+              <div class="install__note" data-note="linux">
+                <h4>Linux</h4>
+                <p>Для интерфейса нужны библиотеки WebKitGTK. Установите по своему дистрибутиву:</p>
+                <div class="cmdline">
+                  <code>sudo apt install libwebkit2gtk-4.1-dev</code>
+                  <button class="copybtn" type="button" data-copy="sudo apt install libwebkit2gtk-4.1-dev">Копировать</button>
+                </div>
+                <div class="cmdline">
+                  <code>sudo dnf install webkit2gtk4.1-devel</code>
+                  <button class="copybtn" type="button" data-copy="sudo dnf install webkit2gtk4.1-devel">Копировать</button>
+                </div>
+                <div class="cmdline">
+                  <code>sudo pacman -S webkit2gtk-4.1</code>
+                  <button class="copybtn" type="button" data-copy="sudo pacman -S webkit2gtk-4.1">Копировать</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== PRICING ===== -->
+        <div class="pricing" id="pricing">
+          <h2 class="section__title reveal">Бесплатно и открыто. <span class="grad-text">Лицензия MIT.</span></h2>
+          <p class="section__sub reveal">
+            Нет тарифов. Нет Pro-версии. Нет лимитов. Это академический проект, а не SaaS.
+            Платите единственной валютой: звёздочкой в репозитории и рекомендацией коллеге-аспиранту.
+          </p>
+          <div class="pricing__grid reveal-group">
+            <article class="pcard pcard--saas">
+              <div class="pcard__head">
+                <h3>Платные аналоги</h3>
+                <div class="pcard__price">~$29–49<span>/мес</span></div>
+              </div>
+              <ul class="pcard__list">
+                <li class="no">Подписка, которая «забывается» отменить</li>
+                <li class="no">Лимит 50 запросов в день</li>
+                <li class="no">Экспорт BibTeX — только в Pro</li>
+                <li class="no">Ваши данные — на чужом сервере</li>
+                <li class="no">Телеметрия и трекинг «для вашего удобства»</li>
+              </ul>
+            </article>
+            <article class="pcard pcard--papeer">
+              <div class="pcard__glowline" aria-hidden="true"></div>
+              <div class="pcard__head">
+                <h3>papeer</h3>
+                <div class="pcard__price">0 ₽<span>MIT · открыто</span></div>
+              </div>
+              <ul class="pcard__list">
+                <li class="yes">Без регистрации и аккаунтов</li>
+                <li class="yes">Без лимитов — хоть 10 000 статей</li>
+                <li class="yes">BibTeX, CSV, PDF — всё включено</li>
+                <li class="yes">Данные только на вашем диске</li>
+                <li class="yes">Исходный код открыт — проверяйте сами</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq section" id="faq">
+      <div class="container container--narrow">
+        <h2 class="section__title reveal">Частые вопросы</h2>
+        <div class="accordion" id="accordion">
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Это законно?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>papeer работает только с открытыми источниками: arXiv, OpenAlex, Unpaywall, препринты и open-access PDF. Он делает то же, что вы сделали бы вручную через браузер или curl, — просто быстрее и по всем базам сразу. Ответственность за то, как вы используете полученные материалы, остаётся на пользователе.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Приложение отправляет куда-то мои данные?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Нет. База статей — локальный файл SQLite на вашем диске. Сетевые запросы идут только к API академических баз и при скачивании PDF. Телеметрии, аналитики и «домашних» серверов нет в принципе — можете проверить исходный код, он открыт.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Зачем нужен Chrome?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Опционально. Некоторые издатели (MDPI, Springer) прячут PDF за защитой Akamai. Если в системе установлен Chrome, papeer запускает его в headless-режиме и аккуратно забирает открытый PDF. Без Chrome всё остальное работает — просто этот один источник пропускается.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>На чём работает?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>macOS (Intel и Apple Silicon, один universal-билд), Windows x64 и Linux amd64. Внутри — Go + Wails: нативное окно, маленький бинарник, запуск мгновенный, оперативной памяти ест меньше, чем одна вкладка браузера из тех самых сорока семи.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Чем это лучше Zotero или Mendeley?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Ничем — потому что это не конкуренты, а разные этапы пайплайна. Zotero отлично хранит и цитирует уже отобранное. papeer заходит раньше: находит, скорит, отсекает мусор и отдаёт чистый BibTeX дальше. Связка papeer → BibTeX → Zotero закрывает обзор целиком.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>А если Semantic Scholar недоступен?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Ничего страшного: остальные три базы продолжат работать — это называется мягкая деградация. Поиск не падает целиком из-за одного недоступного источника, а упавший поток честно помечается в журнале.</p>
+            </div></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final section">
+      <div class="container final__inner">
+        <h2 class="final__title reveal">Ваш следующий обзор литературы может стать <span class="grad-text">последним мучительным</span>.</h2>
+        <div class="final__cta reveal">
+          <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--big btn--magnetic btn--glow" data-magnetic><span class="btn__label">Скачать бесплатно</span></a>
+          <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener" class="final__code-link">Или посмотрите код — он открыт →</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a href="#top" class="logo">
+          <svg class="logo__mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <path d="M10 6 H5 V26 H10" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M22 6 H27 V26 H22" stroke="url(#lg2)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M14.5 26 V6 A4 4 0 0 1 14.5 14" stroke="url(#lg2)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="lg2" x1="0" y1="0" x2="32" y2="32">
+                <stop offset="0" stop-color="#7c5cff"/>
+                <stop offset="1" stop-color="#46e0c0"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <span class="logo__text">papeer</span>
+        </a>
+        <p class="footer__tag">Academic Paper Explorer<br>& Processing App</p>
+      </div>
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a href="#how">Как это работает</a>
+        <a href="#features">Возможности</a>
+        <a href="#download">Скачать</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener">Репозиторий</a>
+      </nav>
+      <div class="footer__meta">
+        <span class="footer__ver">v1.1.0</span>
+        <p>© 2026 papeer · Открытый код под лицензией MIT</p>
+        <p class="footer__made">Сделано с любовью к науке — и на Go.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
