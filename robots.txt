@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://getpapeer.app/sitemap.xml
+Sitemap: https://papeer.store/sitemap.xml

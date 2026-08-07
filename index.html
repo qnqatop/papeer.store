@@ -6,32 +6,160 @@
   <!-- No-JS guard: mark that JS is available so reveal-hiding only applies with JS. -->
   <script>document.documentElement.classList.add('js');</script>
   <title>Papeer — обзор литературы за вечера, а не за недели</title>
-  <meta name="description" content="Бесплатное десктоп-приложение для обзора литературы: поиск в 4 базах, скоринг 0–10, горячие клавиши, PDF и BibTeX в один клик. Всё локально.">
+  <meta name="description" content="Бесплатный обзор литературы: поиск в 4 базах, скоринг, PDF и BibTeX в клик, аналитика поля — темы, пробелы — и LLM-саммари. macOS · Windows · Linux.">
   <meta name="keywords" content="обзор литературы, диссертация, академические статьи, Semantic Scholar, OpenAlex, Crossref, arXiv, BibTeX, papeer">
   <meta name="author" content="papeer">
   <meta property="og:title" content="Papeer — обзор литературы за вечера, а не за недели">
-  <meta property="og:description" content="Бесплатный поиск по 4 академическим базам, скоринг 0–10, разбор горячими клавишами, PDF и BibTeX в один клик. Всё локально.">
+  <meta property="og:description" content="Бесплатный поиск по 4 академическим базам, скоринг релевантности, PDF и BibTeX в один клик — плюс аналитика поля: темы, ключевые работы, пробелы, граф цитирований и LLM-черновик обзора. Данные — на вашем компьютере, без аккаунтов и телеметрии.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:url" content="https://getpapeer.app/">
+  <meta property="og:url" content="https://papeer.store/">
   <meta property="og:site_name" content="Papeer">
-  <meta property="og:image" content="https://getpapeer.app/og-cover.png">
+  <meta property="og:image" content="https://papeer.store/og-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="papeer — обзор литературы за вечера, а не за недели">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Papeer — обзор литературы за вечера, а не за недели">
-  <meta name="twitter:description" content="Бесплатный поиск по 4 академическим базам, скоринг 0–10, горячие клавиши, PDF и BibTeX. macOS · Windows · Linux.">
-  <meta name="twitter:image" content="https://getpapeer.app/og-cover.png">
-  <link rel="canonical" href="https://getpapeer.app/">
+  <meta name="twitter:description" content="Бесплатный поиск по 4 академическим базам, скоринг, PDF и BibTeX в клик, аналитика поля и опциональный LLM. macOS · Windows · Linux.">
+  <meta name="twitter:image" content="https://papeer.store/og-cover.png">
+  <meta name="twitter:image:alt" content="papeer — обзор литературы за вечера, а не за недели">
+  <link rel="canonical" href="https://papeer.store/">
   <meta name="theme-color" content="#0a0c12">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://img.shields.io" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "papeer",
+    "alternateName": "Academic Paper Explorer & Processing App",
+    "description": "Бесплатное десктоп-приложение для обзора литературы: поиск в Semantic Scholar, OpenAlex, Crossref и arXiv, скоринг релевантности, скачивание PDF, экспорт BibTeX, аналитика поля (темы, ключевые работы, пробелы, граф цитирований) и опциональные LLM-функции. Данные хранятся локально, без аккаунтов и телеметрии.",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": ["macOS", "Windows", "Linux"],
+    "softwareVersion": "1.0.0",
+    "inLanguage": "ru",
+    "isAccessibleForFree": true,
+    "url": "https://papeer.store/",
+    "downloadUrl": "https://github.com/qnqatop/papeer/releases",
+    "license": "https://github.com/qnqatop/papeer/blob/main/LICENSE",
+    "codeRepository": "https://github.com/qnqatop/papeer",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "papeer",
+      "url": "https://github.com/qnqatop"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Это законно?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "papeer работает только с открытыми источниками: arXiv, OpenAlex, Unpaywall, препринты и open-access PDF. Он делает то же, что вы сделали бы вручную через браузер или curl, — просто быстрее и по всем базам сразу."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Приложение отправляет куда-то мои данные?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Нет. База статей — локальный файл SQLite на вашем диске. Сетевые запросы идут только к API академических баз и при скачивании PDF. Телеметрии и аналитики нет. Исключение — опциональные LLM-функции: запросы уходят на указанный вами эндпоинт и только по вашему действию."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Зачем нужен Chrome?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Опционально. Некоторые издатели прячут PDF за защитой Akamai. Если Chrome установлен, papeer запускает его в headless-режиме и забирает открытый PDF. Без Chrome всё остальное работает — этот один источник просто пропускается."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "На чём работает?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "macOS (Intel и Apple Silicon, universal-билд), Windows x64 и Linux amd64. Внутри — Go + Wails: нативное окно, маленький бинарник, мгновенный запуск."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Чем это лучше Zotero или Mendeley?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Это не конкуренты, а разные этапы пайплайна. Zotero хранит и цитирует уже отобранное. papeer заходит раньше: находит, скорит, отсекает мусор и отдаёт чистый BibTeX дальше. Связка papeer → BibTeX → Zotero закрывает обзор целиком."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "А если Semantic Scholar недоступен?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Остальные три базы продолжат работать — это мягкая деградация. Поиск не падает из-за одного недоступного источника, а упавший поток честно помечается в журнале."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Нужен ли свой API-ключ? Что работает без него?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Без ключа работает почти всё: поиск по 4 базам, скоринг, хоткеи, скачивание PDF, BibTeX/CSV, темы, граф цитирований, рекомендации и Радар. Ключ нужен только для LLM-функций — саммари и черновика обзора. Подойдёт любой OpenAI-совместимый эндпоинт."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Нужна ли регистрация? Зачем papeer просит e-mail?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Регистрации и аккаунтов нет. При создании исследования papeer просит валидный e-mail — это не логин, а контактный адрес, который академические API (OpenAlex, Crossref и другие) просят передавать в запросах («вежливый пул»): с ним данные отдаются быстрее и стабильнее. E-mail хранится локально и уходит только этим API в составе User-Agent — писем на него не приходит."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Как хранятся мои LLM-ключи?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ключ хранится в системном хранилище ключей вашей ОС — Keychain (macOS), Credential Manager (Windows) или Secret Service/libsecret (Linux), — а не в файле базы и не в открытом виде. Ключ никуда не отправляется, кроме самого LLM-эндпоинта при явном вызове. При подозрении на компрометацию отзовите ключ у провайдера."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Чем это отличается от Connected Papers или Research Rabbit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Они строят граф похожих работ в облаке за подписку. papeer бесплатен, работает локально без регистрации и закрывает весь цикл: поиск → разбор → PDF → анализ поля → черновик обзора → мониторинг новых статей."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "А русские базы — eLibrary, КиберЛенинка?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Пока нет: работаем с международными источниками — Semantic Scholar, OpenAlex, Crossref и arXiv. Проголосовать за русскоязычные базы можно в issues на GitHub — приоритеты ставим по запросам."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -54,13 +182,14 @@
       </a>
       <nav class="nav" id="nav" aria-label="Основная навигация">
         <a href="#how" class="nav__link">Как это работает</a>
+        <a href="#field" class="nav__link">Анализ</a>
         <a href="#features" class="nav__link">Возможности</a>
         <a href="#download" class="nav__link">Скачать</a>
         <a href="#pricing" class="nav__link">Цена</a>
         <a href="#faq" class="nav__link">FAQ</a>
       </nav>
       <div class="header__actions">
-        <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener" class="header__repo" aria-label="Репозиторий">
+        <a href="https://github.com/qnqatop/papeer" target="_blank" rel="noopener" class="header__repo" aria-label="Репозиторий">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
             <path d="M9 18c-4.51 2-5-2-7-2"/>
@@ -75,6 +204,12 @@
     </div>
   </header>
 
+  <!-- Sticky download button for mobile (header CTA is hidden < 900px) -->
+  <a href="#download" class="cta-sticky" id="ctaSticky" aria-label="Скачать papeer бесплатно">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
+    <span>Скачать</span>
+  </a>
+
   <main id="top">
 
     <!-- ===== HERO ===== -->
@@ -88,27 +223,42 @@
         <div class="hero__copy">
           <div class="badge reveal">
             <span class="badge__dot"></span>
-            v1.1.0 — стабильный релиз · macOS · Windows · Linux
+            v1.0.0 — первый публичный релиз · macOS · Windows · Linux
           </div>
           <h1 class="hero__title reveal">
             Обзор литературы за&nbsp;<span class="grad-text">вечера</span>, а&nbsp;не&nbsp;за&nbsp;недели.
           </h1>
           <p class="hero__sub reveal">
-            papeer бесплатно ищет статьи сразу в Semantic Scholar, OpenAlex, Crossref и arXiv,
-            оценивает релевантность каждой по шкале 0–10, помогает разобрать сотни работ
-            горячими клавишами — и сам качает PDF и собирает BibTeX.
-            Всё локально, на вашем компьютере.
+            papeer бесплатно ищет сразу в Semantic Scholar, OpenAlex, Crossref и arXiv,
+            сортирует сотни статей по релевантности, сам качает PDF —
+            и собирает из них картину поля: темы, ключевые работы, пробелы и черновик обзора.
+            Данные — на вашем компьютере, без аккаунтов и телеметрии.
           </p>
           <div class="hero__cta reveal">
-            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener"
-               class="btn btn--primary btn--magnetic btn--glow" data-magnetic>
+            <!-- data-dl="auto": JS подставит прямую ссылку на ассет под вашу ОС (фолбэк — страница релизов) -->
+            <a href="https://github.com/qnqatop/papeer/releases" target="_blank" rel="noopener"
+               class="btn btn--primary btn--magnetic btn--glow" data-magnetic data-dl="auto">
               <span class="btn__label">Скачать бесплатно</span>
             </a>
-            <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener" class="btn btn--ghost btn--magnetic" data-magnetic>
+            <a href="https://github.com/qnqatop/papeer" target="_blank" rel="noopener" class="btn btn--ghost btn--magnetic" data-magnetic>
               <span class="btn__label">Исходный код</span>
             </a>
           </div>
-          <p class="hero__micro reveal">Без регистрации. Без подписки. Без «пробного периода». Просто бесплатно.</p>
+          <p class="hero__micro reveal">Без регистрации. Без подписки. Работает и вовсе без аккаунтов — LLM-функции опциональны, на вашем ключе.</p>
+          <div class="shields reveal">
+            <a href="https://github.com/qnqatop/papeer/releases" target="_blank" rel="noopener">
+              <img src="https://img.shields.io/github/v/release/qnqatop/papeer" alt="Версия последнего релиза на GitHub" loading="lazy" height="22">
+            </a>
+            <a href="https://github.com/qnqatop/papeer/blob/main/LICENSE" target="_blank" rel="noopener">
+              <img src="https://img.shields.io/github/license/qnqatop/papeer" alt="Лицензия: MIT" loading="lazy" height="22">
+            </a>
+            <a href="https://github.com/qnqatop/papeer#readme" target="_blank" rel="noopener">
+              <img src="https://img.shields.io/badge/platforms-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-7c5cff" alt="Платформы: macOS, Windows, Linux" loading="lazy" height="22">
+            </a>
+            <a href="https://github.com/qnqatop/papeer/stargazers" target="_blank" rel="noopener">
+              <img src="https://img.shields.io/github/stars/qnqatop/papeer?style=social" alt="Поставить звезду papeer на GitHub" loading="lazy" height="22">
+            </a>
+          </div>
         </div>
 
         <div class="hero__visual reveal">
@@ -225,8 +375,8 @@
             </div>
           </div>
 
-          <!-- terminal -->
-          <div class="term" aria-hidden="false">
+          <!-- terminal (анимация декоративная — скрыта от скринридеров, кнопка перезапуска доступна) -->
+          <div class="term">
             <div class="term__bar">
               <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
               <span class="term__title">Лог поиска</span>
@@ -325,7 +475,7 @@
           <article class="step reveal">
             <div class="step__num">01</div>
             <h3 class="step__title">Сформулируйте тему</h3>
-            <p class="step__text">Ключевые слова, must-ключи, boost-ключи. Одна тема = одна «ось» исследования. Сколько осей — столько параллельных потоков литературы.</p>
+            <p class="step__text">Ключевые слова, must-ключи, boost-ключи. Одна тема — отдельное направление исследования. Сколько тем — столько параллельных потоков литературы.</p>
             <div class="step__art step__art--chips" aria-hidden="true">
               <span class="chip chip--must">must: deep learning</span>
               <span class="chip chip--must">must: MRI</span>
@@ -337,7 +487,7 @@
           <article class="step reveal">
             <div class="step__num">02</div>
             <h3 class="step__title">Получите чистую выдачу</h3>
-            <p class="step__text">4 базы параллельно, дедупликация по DOI, скор релевантности 0–10. Мусор отсеивается сам. Попробуйте сами — виджет живой:</p>
+            <p class="step__text">4 базы параллельно, дедупликация по DOI и заголовку, черновой скор 0–10 по вашим must/boost-ключам — явные промахи уходят вниз списка. Финальное слово за вами: скор — это порядок разбора, а не приговор. Попробуйте сами — виджет живой:</p>
             <div class="scorer" id="scorer">
               <div class="scorer__fields">
                 <label class="scorer__field">
@@ -365,10 +515,10 @@
             <div class="step__num">03</div>
             <h3 class="step__title">Разберите поток горячими клавишами</h3>
             <p class="step__text">j/k листаете, a — берёте, r — в отвал, Enter — аннотация. Сотни решений в час.</p>
-            <div class="kbd-demo" id="kbdDemo" tabindex="0" role="application"
+            <div class="kbd-demo" id="kbdDemo" tabindex="0" role="group"
                  aria-label="Демо горячих клавиш: j — вниз, k — вверх, a — принять, r — отклонить">
               <div class="kbd-demo__hint">
-                <span class="kbd-demo__hint-text">Наведите или нажмите сюда, затем:</span>
+                <span class="kbd-demo__hint-text">Нажмите сюда, затем:</span>
                 <kbd>j</kbd><kbd>k</kbd><kbd>a</kbd><kbd>r</kbd>
                 <button class="kbd-demo__reset" id="kbdReset" type="button">Сбросить</button>
               </div>
@@ -381,7 +531,7 @@
           <article class="step reveal">
             <div class="step__num">04</div>
             <h3 class="step__title">Скачайте PDF и экспортируйте</h3>
-            <p class="step__text">Цепочка из 5 источников находит открытые полные тексты, BibTeX и CSV — в один клик, статистика по осям — для отчётов руководителю.</p>
+            <p class="step__text">Цепочка из 5 открытых источников плюс headless Chrome находит полные тексты, BibTeX и CSV — в один клик, статистика по темам — для отчётов руководителю.</p>
             <div class="step__art step__art--files" aria-hidden="true">
               <div class="filechip">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
@@ -393,9 +543,114 @@
               </div>
               <div class="filechip">
                 <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
-                report.csv <span class="filechip__ok">✓ по осям</span>
+                report.csv <span class="filechip__ok">✓ по темам</span>
               </div>
             </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SCREENSHOTS ===== -->
+    <section class="shots section" id="screenshots">
+      <div class="container">
+        <h2 class="section__title reveal">Как это <span class="grad-text">выглядит на деле</span></h2>
+        <p class="section__sub reveal">Никаких стоковых картинок — реальный интерфейс papeer, как есть.</p>
+        <div class="shots__grid reveal-group">
+          <figure class="shot shot--wide shot--video">
+            <div class="shot__frame" aria-hidden="true">
+              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+            </div>
+            <video class="shot__media" autoplay muted loop playsinline preload="metadata"
+                   poster="demo/demo-poster.jpg" width="1600" height="1000"
+                   aria-label="Демонстрация papeer: поиск по темам, разбор потока статей горячими клавишами и анализ поля">
+              <source src="demo/demo.webm" type="video/webm">
+              <source src="demo/demo.mp4" type="video/mp4">
+            </video>
+            <figcaption class="shot__caption"><strong>Живая демонстрация.</strong> Поиск по темам → разбор потока → анализ поля — за полминуты.</figcaption>
+          </figure>
+          <figure class="shot shot--wide">
+            <div class="shot__frame" aria-hidden="true">
+              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+            </div>
+            <img src="screenshots/papers.png" width="1600" height="1000" loading="lazy"
+                 alt="Экран «Статьи» в papeer: слева список работ со скором релевантности 0–10 и сегментами статусов, справа панель детали выбранной статьи — авторы, журнал, цитирования, аннотация и AI-саммари">
+            <figcaption class="shot__caption"><strong>Разбор потока.</strong> Слева — список со скором и статусами, справа — детали статьи. Листать и размечать можно с клавиатуры.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__frame" aria-hidden="true">
+              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+            </div>
+            <img src="screenshots/analysis.png" width="1600" height="1000" loading="lazy"
+                 alt="Раздел «Анализ» в papeer: строка статуса «найдено / разобрано / скачано», вкладки Обзор, Пробелы, Темы, Ключевые статьи, Граф, Обзор литературы, Рекомендации, график распределения статей по годам и топ авторов">
+            <figcaption class="shot__caption"><strong>Анализ поля.</strong> Распределение по годам, топ авторов, темы и пробелы — готовая картина для отчёта руководителю.</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="shot__frame" aria-hidden="true">
+              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
+            </div>
+            <img src="screenshots/search.png" width="1600" height="1000" loading="lazy"
+                 alt="Экран «Поиск» в papeer: тема со своими запросами и ключевыми словами — обязательные и повышающие релевантность, счётчик статей, поиск по базам и экспорт в YAML">
+            <figcaption class="shot__caption"><strong>Темы исследования.</strong> Каждая тема — отдельный поток литературы со своими запросами, ключами и экспортом.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FIELD / ANALYSIS ===== -->
+    <section class="features section" id="field">
+      <div class="container">
+        <h2 class="section__title reveal">Поймите поле, <span class="grad-text">а не просто соберите список</span></h2>
+        <p class="section__sub reveal">Раздел «Анализ» превращает отобранные статьи в картину поля: темы, ключевые работы, пробелы, граф цитирований. Аналитика считается локально, на вашем компьютере; LLM-черновик обзора — опционально, на вашем ключе.</p>
+        <div class="features__grid reveal-group">
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="9" cy="18" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M8.2 7.2 15.7 7.8M7.3 8.3l1.2 7.3M15.9 10.3l.8 4.3"/></svg>
+            </div>
+            <h3 class="fcard__title">Темы корпуса.</h3>
+            <p class="fcard__text">TF-IDF и кластеризация прямо на вашем компьютере: сотни статей складываются в понятные темы. Без сети, без отправки данных куда-либо.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M9 7h6M9 11h6"/></svg>
+            </div>
+            <h3 class="fcard__title">Что читать первым.</h3>
+            <p class="fcard__text">Три рейтинга: самые цитируемые, набирающие обороты и «мосты» между темами — betweenness centrality по графу цитирований.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
+            </div>
+            <h3 class="fcard__title">Чего не хватает.</h3>
+            <p class="fcard__text">Coverage Gaps: работы, которые цитирует ваш корпус, но которых у вас ещё нет. Добавить в корпус — в один клик.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="2.5"/><circle cx="19" cy="5" r="2.5"/><circle cx="19" cy="19" r="2.5"/><path d="M7.2 10.9 16.8 6.1M7.2 13.1l9.6 4.8"/></svg>
+            </div>
+            <h3 class="fcard__title">Граф цитирований.</h3>
+            <p class="fcard__text">Кто на кого ссылается внутри вашей выборки — по данным Semantic Scholar Graph API.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none"/></svg>
+            </div>
+            <h3 class="fcard__title">Радар: поле следит за собой само.</h3>
+            <p class="fcard__text">Настройте один раз — papeer периодически перепроверяет базы и помечает новые статьи по вашим темам тегом «monitoring». Google Alerts для научной литературы, только без почты и рекламы.</p>
+          </article>
+          <article class="fcard">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 15 8.5l7 .8-5.2 4.7 1.4 7L12 17.5 5.8 21l1.4-7L2 9.3l7-.8z"/></svg>
+            </div>
+            <h3 class="fcard__title">Похожие на одобренные.</h3>
+            <p class="fcard__text">Рекомендации на основе ваших решений: чем больше разбираете, тем точнее подсказки, что посмотреть следующим.</p>
+          </article>
+          <article class="fcard fcard--wide">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.3L18 9l-4.3 1.7L12 15l-1.7-4.3L6 9l4.3-1.7z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/><path d="M5 15l.7 1.8L7.5 17.5l-1.8.7L5 20l-.7-1.8L2.5 17.5l1.8-.7z"/></svg>
+            </div>
+            <h3 class="fcard__title">Черновик обзора по вашим статьям. На вашем LLM-ключе.</h3>
+            <p class="fcard__text">Подключите любой OpenAI-совместимый ключ (DeepSeek, OpenAI, локальная модель) — papeer сделает саммари каждой скачанной статьи и соберёт из них черновик обзора в Markdown. Это черновик, а не готовая глава: источники показаны рядом с каждым абзацем. Опционально: без ключа работает всё остальное, а сам ключ хранится в системном хранилище ключей вашей ОС.</p>
           </article>
         </div>
       </div>
@@ -404,28 +659,28 @@
     <!-- ===== FEATURES ===== -->
     <section class="features section" id="features">
       <div class="container">
-        <h2 class="section__title reveal">Сделано, чтобы <span class="grad-text">выжимать недели в часы</span></h2>
+        <h2 class="section__title reveal">Всё для обзора — <span class="grad-text">в одном окне</span></h2>
         <div class="features__grid reveal-group">
           <article class="fcard">
             <div class="fcard__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg>
             </div>
             <h3 class="fcard__title">Четыре базы. Один запрос. Ноль вкладок.</h3>
-            <p class="fcard__text">Semantic Scholar, OpenAlex, Crossref и arXiv ищутся параллельно. Дубли сливаются по DOI — вы видите чистую выдачу, а не четыре каши.</p>
+            <p class="fcard__text">Semantic Scholar, OpenAlex, Crossref и arXiv ищутся параллельно. Дубли сливаются по DOI и заголовку — вы видите чистую выдачу, а не четыре каши.</p>
           </article>
           <article class="fcard">
             <div class="fcard__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8h.01M10 8h.01M14 8h.01M18 8h.01M6 12h.01M10 12h.01M14 12h.01M18 12h.01M8 16h8"/></svg>
             </div>
-            <h3 class="fcard__title">300 статей за час. Без мыши.</h3>
-            <p class="fcard__text">Скор 0–10 уже проставлен, остаётся листать j/k и жать a/r. Руки не покидают клавиатуру — темп не падает.</p>
+            <h3 class="fcard__title">Сотни статей в час. Без мыши.</h3>
+            <p class="fcard__text">Эвристика по must/boost-ключам расставляет черновой скор 0–10 и задаёт порядок разбора — остаётся листать j/k и жать a/r. Финальное решение всегда за вами.</p>
           </article>
           <article class="fcard">
             <div class="fcard__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
             </div>
             <h3 class="fcard__title">«Full text not available»? Это не наша проблема.</h3>
-            <p class="fcard__text">5 источников открытых полных текстов: arXiv → Semantic Scholar → OpenAlex → Unpaywall → Crossref, плюс headless Chrome против Akamai (MDPI, Springer).</p>
+            <p class="fcard__text">5 источников открытых полных текстов: arXiv → Semantic Scholar → OpenAlex → Unpaywall → Crossref, плюс headless Chrome против антибот-защит издателей (MDPI, Springer, ScienceDirect).</p>
           </article>
           <article class="fcard">
             <div class="fcard__icon">
@@ -439,7 +694,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 3H2l8 9.46V19l4 2v-8.54z"/></svg>
             </div>
             <h3 class="fcard__title">Фильтры, которые складываются. Как Lego.</h3>
-            <p class="fcard__text">Ось, статус, скор, годы, количество цитат — комбинируйте как угодно. Статистика-дашборды показывают картину по каждой оси.</p>
+            <p class="fcard__text">Тема, статус, скор, годы, количество цитат — комбинируйте как угодно. Статистика-дашборды показывают картину по каждой теме.</p>
           </article>
           <article class="fcard">
             <div class="fcard__icon">
@@ -455,7 +710,7 @@
     <!-- ===== DOWNLOAD ===== -->
     <section class="download section" id="download">
       <div class="container">
-        <h2 class="section__title reveal">Скачать <span class="grad-text">papeer v1.1.0</span></h2>
+        <h2 class="section__title reveal">Скачать <span class="grad-text">papeer v1.0.0</span></h2>
         <p class="section__sub reveal">Всё бесплатно. Всё под вашу платформу. Одна кнопка — и вы в деле.</p>
 
         <div class="os-grid reveal-group">
@@ -466,7 +721,7 @@
             </div>
             <h3 class="os-card__name">macOS</h3>
             <p class="os-card__spec">Universal · Intel + Apple Silicon</p>
-            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic><span class="btn__label">Скачать для macOS</span></a>
+            <a href="https://github.com/qnqatop/papeer/releases/latest/download/papeer-macos-universal.zip" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic data-dl="macos"><span class="btn__label">Скачать для macOS</span></a>
           </article>
 
           <article class="os-card" data-os-card="windows">
@@ -476,7 +731,7 @@
             </div>
             <h3 class="os-card__name">Windows</h3>
             <p class="os-card__spec">x64 · установщик и portable</p>
-            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic><span class="btn__label">Скачать для Windows</span></a>
+            <a href="https://github.com/qnqatop/papeer/releases/latest/download/papeer-windows-amd64.zip" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic data-dl="windows"><span class="btn__label">Скачать для Windows</span></a>
           </article>
 
           <article class="os-card" data-os-card="linux">
@@ -486,8 +741,32 @@
             </div>
             <h3 class="os-card__name">Linux</h3>
             <p class="os-card__spec">amd64 · .AppImage / .deb / .rpm</p>
-            <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic><span class="btn__label">Скачать для Linux</span></a>
+            <a href="https://github.com/qnqatop/papeer/releases/latest/download/papeer-linux-amd64.tar.gz" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic data-dl="linux"><span class="btn__label">Скачать для Linux</span></a>
           </article>
+        </div>
+
+        <!--
+          ВНИМАНИЕ: имена ассетов в прямых ссылках выше (papeer-macos-universal.zip,
+          papeer-windows-amd64.zip, papeer-linux-amd64.tar.gz) — предположительные.
+          Перед публикацией сверить с фактическими файлами в
+          https://github.com/qnqatop/papeer/releases/latest (маппинг также в js/main.js).
+        -->
+        <p class="download__fallback reveal">Все файлы и контрольные суммы — <a href="https://github.com/qnqatop/papeer/releases" target="_blank" rel="noopener">на странице релизов</a>.</p>
+
+        <!-- system requirements -->
+        <div class="sysreq reveal-group">
+          <div class="sysreq__item">
+            <h4>Операционная система</h4>
+            <p>macOS 10.13+ (universal: Intel и Apple Silicon), Windows 10+ x64, современный Linux amd64 с WebKitGTK 4.1.</p>
+          </div>
+          <div class="sysreq__item">
+            <h4>Память и диск</h4>
+            <p>Требования скромные: приложение ест меньше памяти, чем одна вкладка браузера. На диске — сама программа плюс место под скачанные PDF.</p>
+          </div>
+          <div class="sysreq__item">
+            <h4>Chrome — опционально</h4>
+            <p>Нужен только для издателей с антибот-защитой (MDPI, Springer, ScienceDirect). Без него всё остальное работает как обычно.</p>
+          </div>
         </div>
 
         <!-- first-run notes (always visible) -->
@@ -586,6 +865,30 @@
       </div>
     </section>
 
+    <!-- ===== CONTRIBUTE ===== -->
+    <section class="contribute section" id="contribute">
+      <div class="container">
+        <h2 class="section__title reveal">Это опенсорс. <span class="grad-text">Присоединяйтесь.</span></h2>
+        <p class="section__sub reveal">Код открыт под MIT, развитие идёт на GitHub — баги, идеи и патчи приветствуются.</p>
+        <div class="features__grid features__grid--duo reveal-group">
+          <a class="fcard fcard--link" href="https://github.com/qnqatop/papeer/issues" target="_blank" rel="noopener">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>
+            </div>
+            <h3 class="fcard__title">Нашли баг?</h3>
+            <p class="fcard__text">Заведите issue — по шаблону это займёт пару минут. Быстрые ответы в issues для опенсорса — лучшая гарантия, что проект живой.</p>
+          </a>
+          <a class="fcard fcard--link" href="https://github.com/qnqatop/papeer/issues/new/choose" target="_blank" rel="noopener">
+            <div class="fcard__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg>
+            </div>
+            <h3 class="fcard__title">Есть идея?</h3>
+            <p class="fcard__text">Feature request — туда же. Например, русскоязычные базы (eLibrary, КиберЛенинка) появятся тем быстрее, чем больше голосов наберут.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FAQ ===== -->
     <section class="faq section" id="faq">
       <div class="container container--narrow">
@@ -608,7 +911,7 @@
               <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc__body"><div class="acc__content">
-              <p>Нет. База статей — локальный файл SQLite на вашем диске. Сетевые запросы идут только к API академических баз и при скачивании PDF. Телеметрии, аналитики и «домашних» серверов нет в принципе — можете проверить исходный код, он открыт.</p>
+              <p>Нет. База статей — локальный файл SQLite на вашем диске. Сетевые запросы идут только к API академических баз и при скачивании PDF. Телеметрии, аналитики и «домашних» серверов нет в принципе — можете проверить исходный код, он открыт. Единственное исключение — опциональные LLM-функции (саммари, черновик обзора): запросы уходят на тот LLM-эндпоинт, который вы указали сами, и только по вашему явному действию.</p>
             </div></div>
           </div>
 
@@ -618,7 +921,7 @@
               <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
             </button>
             <div class="acc__body"><div class="acc__content">
-              <p>Опционально. Некоторые издатели (MDPI, Springer) прячут PDF за защитой Akamai. Если в системе установлен Chrome, papeer запускает его в headless-режиме и аккуратно забирает открытый PDF. Без Chrome всё остальное работает — просто этот один источник пропускается.</p>
+              <p>Опционально. Некоторые издатели (MDPI, Springer, ScienceDirect) прячут PDF за антибот-защитой. Если в системе установлен Chrome, papeer запускает его в headless-режиме и аккуратно забирает открытый PDF. Без Chrome всё остальное работает — просто этот один источник пропускается.</p>
             </div></div>
           </div>
 
@@ -652,6 +955,56 @@
             </div></div>
           </div>
 
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Нужен ли свой API-ключ? Что работает без него?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Без ключа работает почти всё: поиск по 4 базам, скоринг, хоткеи, скачивание PDF, BibTeX/CSV, темы, граф цитирований, рекомендации и Радар. Ключ нужен только для двух LLM-функций — саммари статей и черновика обзора. Подойдёт любой OpenAI-совместимый эндпоинт: DeepSeek, OpenAI или локальная модель.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Нужна ли регистрация? Зачем papeer просит e-mail?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Регистрации и аккаунтов нет. Но при создании исследования papeer просит указать валидный e-mail — это не логин, а контактный адрес, который академические API (OpenAlex, Crossref и другие) просят передавать в запросах — так называемый «вежливый пул»: с ним данные отдаются быстрее и стабильнее. E-mail хранится локально и уходит только этим API в составе User-Agent — писем на него не приходит.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Как хранятся мои LLM-ключи?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Ключ хранится в системном хранилище ключей вашей ОС — <strong>Keychain</strong> (macOS), <strong>Credential Manager</strong> (Windows) или <strong>Secret Service/libsecret</strong> (Linux), — а не в файле базы и не в открытом виде. Ключ никуда не отправляется, кроме самого LLM-эндпоинта при явном вызове. Если подозреваете компрометацию — отзовите ключ у провайдера и сгенерируйте новый.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>Чем это отличается от Connected Papers или Research Rabbit?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Они строят граф похожих работ в облаке — за подписку и с аккаунтом. papeer бесплатен, работает локально без регистрации и закрывает весь цикл обзора: поиск → разбор → PDF → анализ поля (темы, ключевые работы, пробелы) → черновик обзора → мониторинг новых статей.</p>
+            </div></div>
+          </div>
+
+          <div class="acc">
+            <button class="acc__head" type="button" aria-expanded="false">
+              <span>А русские базы — eLibrary, КиберЛенинка?</span>
+              <svg class="acc__icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="acc__body"><div class="acc__content">
+              <p>Пока нет: работаем с международными источниками — Semantic Scholar, OpenAlex, Crossref и arXiv. Если русскоязычные базы важны именно вам, проголосуйте за эту идею в <a href="https://github.com/qnqatop/papeer/issues" target="_blank" rel="noopener">issues на GitHub</a> — приоритеты ставим по запросам.</p>
+            </div></div>
+          </div>
+
         </div>
       </div>
     </section>
@@ -661,8 +1014,8 @@
       <div class="container final__inner">
         <h2 class="final__title reveal">Ваш следующий обзор литературы может стать <span class="grad-text">последним мучительным</span>.</h2>
         <div class="final__cta reveal">
-          <a href="https://github.com/papeer-app/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--big btn--magnetic btn--glow" data-magnetic><span class="btn__label">Скачать бесплатно</span></a>
-          <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener" class="final__code-link">Или посмотрите код — он открыт →</a>
+          <a href="https://github.com/qnqatop/papeer/releases" target="_blank" rel="noopener" class="btn btn--primary btn--big btn--magnetic btn--glow" data-magnetic data-dl="auto"><span class="btn__label">Скачать бесплатно</span></a>
+          <a href="https://github.com/qnqatop/papeer" target="_blank" rel="noopener" class="final__code-link">Или посмотрите код — он открыт →</a>
         </div>
       </div>
     </section>
@@ -691,13 +1044,16 @@
       </div>
       <nav class="footer__nav" aria-label="Навигация в подвале">
         <a href="#how">Как это работает</a>
+        <a href="#field">Анализ</a>
         <a href="#features">Возможности</a>
         <a href="#download">Скачать</a>
         <a href="#faq">FAQ</a>
-        <a href="https://github.com/papeer-app/papeer" target="_blank" rel="noopener">Репозиторий</a>
+        <a href="https://github.com/qnqatop/papeer" target="_blank" rel="noopener">Репозиторий</a>
+        <a href="https://github.com/qnqatop/papeer/issues" target="_blank" rel="noopener">Нашли баг?</a>
+        <a href="https://github.com/qnqatop/papeer/blob/main/LICENSE" target="_blank" rel="noopener">Лицензия MIT</a>
       </nav>
       <div class="footer__meta">
-        <span class="footer__ver">v1.1.0</span>
+        <span class="footer__ver">v1.0.0</span>
         <p>© 2026 papeer · Открытый код под лицензией MIT</p>
         <p class="footer__made">Сделано с любовью к науке — и на Go.</p>
       </div>

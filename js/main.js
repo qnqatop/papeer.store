@@ -75,7 +75,6 @@
 
   /* ---------------- reveal on scroll ---------------- */
   $$('.reveal-group').forEach(function (group) {
-    $$('.reveal-group > *', group.parentNode).length; // noop, keep structure clear
     Array.prototype.slice.call(group.children).forEach(function (child, i) {
       child.style.setProperty('--rd', (i * 0.09) + 's');
     });
@@ -171,7 +170,8 @@
   function animateCounter(el) {
     var target = parseInt(el.getAttribute('data-target'), 10);
     if (isNaN(target)) return;
-    if (reduceMotion) { el.textContent = String(target); return; }
+    // No point animating 0→0 (e.g. "0 ₽", "0 аккаунтов") — render it immediately.
+    if (reduceMotion || target === 0) { el.textContent = String(target); return; }
     var dur = 1400;
     var start = null;
     function frame(ts) {
@@ -217,6 +217,7 @@
   ];
 
   var termToken = 0;
+  var termVisible = false; // terminal is inside the viewport — loop only while true
   function nowTime(offsetMs) {
     var d = new Date(Date.now() + offsetMs);
     function p2(n) { return (n < 10 ? '0' : '') + n; }
@@ -246,8 +247,8 @@
       // Pause the log while the tab is hidden — resume when it returns.
       if (document.hidden) { setTimeout(typeLine, 500); return; }
       if (idx >= TERM_SCRIPT.length) {
-        // pause, then loop
-        setTimeout(function () { if (myToken === termToken) runTerminal(); }, 5000);
+        // pause, then loop — but only while the terminal is actually on screen
+        setTimeout(function () { if (myToken === termToken && termVisible) runTerminal(); }, 5000);
         return;
       }
       var line = TERM_SCRIPT[idx];
@@ -283,28 +284,47 @@
   }
   if (termRestart) {
     termRestart.addEventListener('click', function () {
+      termVisible = true;
       runTerminal();
       toast('Журнал запущен заново');
     });
   }
-  // start when hero terminal is visible (or immediately)
+  // Start when the terminal scrolls into view; stop the loop when it leaves,
+  // so the typing animation doesn't burn CPU off-screen.
   if (termBody) {
     if ('IntersectionObserver' in window) {
       var termIO = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            runTerminal();
-            termIO.disconnect();
+            if (!termVisible) {
+              termVisible = true;
+              runTerminal();
+            }
+          } else {
+            termVisible = false;
+            termToken++; // cancel in-flight typing and pending loop restarts
           }
         });
       }, { threshold: 0.3 });
       termIO.observe(termBody);
     } else {
+      termVisible = true;
       runTerminal();
     }
   }
 
-  /* ---------------- OS detection ---------------- */
+  /* ---------------- OS detection + direct download links ---------------- */
+  // Прямые ссылки на ассеты последнего релиза GitHub.
+  // ВАЖНО: имена файлов предположительные — перед публикацией сверить
+  // с фактическими ассетами в https://github.com/qnqatop/papeer/releases/latest
+  // (те же ссылки продублированы статично в index.html, секция #download).
+  var RELEASE_BASE = 'https://github.com/qnqatop/papeer/releases';
+  var RELEASE_ASSETS = {
+    macos: RELEASE_BASE + '/latest/download/papeer-macos-universal.zip',
+    windows: RELEASE_BASE + '/latest/download/papeer-windows-amd64.zip',
+    linux: RELEASE_BASE + '/latest/download/papeer-linux-amd64.tar.gz'
+  };
+
   function detectOS() {
     var ua = (navigator.userAgent || '').toLowerCase();
     var plat = (navigator.platform || '').toLowerCase();
@@ -319,6 +339,16 @@
     return null;
   }
   var os = detectOS();
+
+  // Per-OS card buttons get direct asset links; the generic hero/final CTA
+  // (data-dl="auto") points at the detected OS asset. Without detection (or
+  // without JS) everything falls back to the releases page.
+  $$('[data-dl]').forEach(function (link) {
+    var target = link.getAttribute('data-dl');
+    if (target === 'auto') target = os;
+    if (target && RELEASE_ASSETS[target]) link.href = RELEASE_ASSETS[target];
+  });
+
   if (os) {
     var card = $('[data-os-card="' + os + '"]');
     if (card) card.classList.add('is-detected');
@@ -401,6 +431,16 @@
       head.setAttribute('aria-expanded', String(!isOpen));
       body.style.maxHeight = isOpen ? '0px' : body.scrollHeight + 'px';
     });
+  });
+
+  // Recalculate open accordion/install panels on resize so content never clips.
+  window.addEventListener('resize', function () {
+    $$('.acc.is-open .acc__body').forEach(function (b) {
+      b.style.maxHeight = b.scrollHeight + 'px';
+    });
+    if (installToggle && installBody && installToggle.getAttribute('aria-expanded') === 'true') {
+      installBody.style.maxHeight = installBody.scrollHeight + 'px';
+    }
   });
 
   /* ---------------- scoring widget ---------------- */
@@ -541,15 +581,15 @@
     row.classList.add(cls);
   }
 
-  var kbdKeys = { j: 1, k: 1, a: 1, r: 1, 'о': 1, 'л': 1, 'ф': 1, 'к': 1 }; // + ru layout
   function kbdHandle(key) {
     var k = key.toLowerCase();
     var mapped = { 'о': 'j', 'л': 'k', 'ф': 'a', 'к': 'r' };
     if (mapped[k]) k = mapped[k];
     if (k === 'j') {
-      if (kbdSel < KBD_PAPERS.length - 1) { kbdSel++; kbdRender(); toast('j — вниз'); }
+      // No toast on plain navigation — it would spam the live region on every keystroke.
+      if (kbdSel < KBD_PAPERS.length - 1) { kbdSel++; kbdRender(); }
     } else if (k === 'k') {
-      if (kbdSel > 0) { kbdSel--; kbdRender(); toast('k — вверх'); }
+      if (kbdSel > 0) { kbdSel--; kbdRender(); }
     } else if (k === 'a') {
       kbdStates[kbdSel] = 'acc';
       kbdRender();
@@ -588,15 +628,18 @@
       kbdDemo.classList.add('is-active');
     });
 
-    // activation model: keys work when hovered, focused, or explicitly clicked into
+    // activation model: keys work only after an explicit click into the demo
+    // or when it has keyboard focus — never on a stray hover.
     var kbdActive = false;
-    kbdDemo.addEventListener('pointerenter', function () {
+    kbdDemo.addEventListener('click', function () {
       kbdActive = true;
       kbdDemo.classList.add('is-active');
     });
-    kbdDemo.addEventListener('pointerleave', function () {
-      kbdActive = false;
-      if (document.activeElement !== kbdDemo) kbdDemo.classList.remove('is-active');
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.kbd-demo')) {
+        kbdActive = false;
+        if (document.activeElement !== kbdDemo) kbdDemo.classList.remove('is-active');
+      }
     });
     kbdDemo.addEventListener('focus', function () {
       kbdActive = true;
@@ -617,6 +660,28 @@
       if (tag === 'input' || tag === 'textarea') return;
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (kbdHandle(e.key)) e.preventDefault();
+    });
+  }
+
+  /* ---------------- sticky mobile download button ---------------- */
+  var ctaSticky = $('#ctaSticky');
+  if (ctaSticky) {
+    var toggleCta = function () {
+      var past = window.scrollY > window.innerHeight * 0.7;
+      ctaSticky.classList.toggle('is-visible', past);
+    };
+    window.addEventListener('scroll', toggleCta, { passive: true });
+    window.addEventListener('resize', toggleCta, { passive: true });
+    toggleCta();
+  }
+
+  /* ---------------- reduced-motion: don't autoplay the demo video ---------------- */
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) {
+    Array.prototype.forEach.call(document.querySelectorAll('video.shot__media'), function (v) {
+      v.removeAttribute('autoplay');
+      v.setAttribute('controls', '');
+      try { v.pause(); } catch (e) {}
     });
   }
 
