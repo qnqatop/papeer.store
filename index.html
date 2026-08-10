@@ -44,7 +44,6 @@
     "description": "Бесплатное десктоп-приложение для обзора литературы: поиск в Semantic Scholar, OpenAlex, Crossref и arXiv, скоринг релевантности, скачивание PDF, экспорт BibTeX, аналитика поля (темы, ключевые работы, пробелы, граф цитирований) и опциональные LLM-функции. Данные хранятся локально, без аккаунтов и телеметрии.",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": ["macOS", "Windows", "Linux"],
-    "softwareVersion": "1.0.0",
     "inLanguage": "ru",
     "isAccessibleForFree": true,
     "url": "https://papeer.store/",
@@ -221,11 +220,7 @@
       </div>
       <div class="container hero__inner">
         <div class="hero__copy">
-          <div class="badge reveal">
-            <span class="badge__dot"></span>
-            v1.0.0 — первый публичный релиз · macOS · Windows · Linux
-          </div>
-          <h1 class="hero__title reveal">
+                    <h1 class="hero__title reveal">
             Обзор литературы за&nbsp;<span class="grad-text">вечера</span>, а&nbsp;не&nbsp;за&nbsp;недели.
           </h1>
           <p class="hero__sub reveal">
@@ -244,8 +239,7 @@
               <span class="btn__label">Исходный код</span>
             </a>
           </div>
-          <p class="hero__micro reveal">Без регистрации. Без подписки. Работает и вовсе без аккаунтов — LLM-функции опциональны, на вашем ключе.</p>
-          <div class="shields reveal">
+                    <div class="shields reveal">
             <a href="https://github.com/qnqatop/papeer/releases" target="_blank" rel="noopener">
               <img src="https://img.shields.io/github/v/release/qnqatop/papeer" alt="Версия последнего релиза на GitHub" loading="lazy" height="22">
             </a>
@@ -454,7 +448,7 @@
             <p>с полупустыми строками.</p>
           </blockquote>
           <blockquote class="pain__quote">
-            <span class="pain__num">«Full text not available»</span>
+            <span class="pain__num">«Полный текст недоступен»</span>
             <p>снова и снова.</p>
           </blockquote>
           <blockquote class="pain__quote">
@@ -557,19 +551,7 @@
         <h2 class="section__title reveal">Как это <span class="grad-text">выглядит на деле</span></h2>
         <p class="section__sub reveal">Никаких стоковых картинок — реальный интерфейс papeer, как есть.</p>
         <div class="shots__grid reveal-group">
-          <figure class="shot shot--wide shot--video">
-            <div class="shot__frame" aria-hidden="true">
-              <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
-            </div>
-            <video class="shot__media" autoplay muted loop playsinline preload="metadata"
-                   poster="demo/demo-poster.jpg" width="1600" height="1000"
-                   aria-label="Демонстрация papeer: поиск по темам, разбор потока статей горячими клавишами и анализ поля">
-              <source src="demo/demo.webm" type="video/webm">
-              <source src="demo/demo.mp4" type="video/mp4">
-            </video>
-            <figcaption class="shot__caption"><strong>Живая демонстрация.</strong> Поиск по темам → разбор потока → анализ поля — за полминуты.</figcaption>
-          </figure>
-          <figure class="shot shot--wide">
+                    <figure class="shot shot--wide">
             <div class="shot__frame" aria-hidden="true">
               <span class="tl tl--r"></span><span class="tl tl--y"></span><span class="tl tl--g"></span>
             </div>
@@ -600,14 +582,14 @@
     <!-- ===== FIELD / ANALYSIS ===== -->
     <section class="features section" id="field">
       <div class="container">
-        <h2 class="section__title reveal">Поймите поле, <span class="grad-text">а не просто соберите список</span></h2>
+        <h2 class="section__title reveal">Разберитесь в теме, <span class="grad-text">а не просто соберите список</span></h2>
         <p class="section__sub reveal">Раздел «Анализ» превращает отобранные статьи в картину поля: темы, ключевые работы, пробелы, граф цитирований. Аналитика считается локально, на вашем компьютере; LLM-черновик обзора — опционально, на вашем ключе.</p>
         <div class="features__grid reveal-group">
           <article class="fcard">
             <div class="fcard__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="2.5"/><circle cx="18" cy="8" r="2.5"/><circle cx="9" cy="18" r="2.5"/><circle cx="17" cy="17" r="2.5"/><path d="M8.2 7.2 15.7 7.8M7.3 8.3l1.2 7.3M15.9 10.3l.8 4.3"/></svg>
             </div>
-            <h3 class="fcard__title">Темы корпуса.</h3>
+            <h3 class="fcard__title">Темы выборки.</h3>
             <p class="fcard__text">TF-IDF и кластеризация прямо на вашем компьютере: сотни статей складываются в понятные темы. Без сети, без отправки данных куда-либо.</p>
           </article>
           <article class="fcard">
@@ -622,7 +604,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m17 8-5-5-5 5"/><path d="M12 3v12"/></svg>
             </div>
             <h3 class="fcard__title">Чего не хватает.</h3>
-            <p class="fcard__text">Coverage Gaps: работы, которые цитирует ваш корпус, но которых у вас ещё нет. Добавить в корпус — в один клик.</p>
+            <p class="fcard__text">Coverage Gaps: работы, которые цитирует ваша выборка, но которых у вас ещё нет. Добавить в выборку — в один клик.</p>
           </article>
           <article class="fcard">
             <div class="fcard__icon">
@@ -679,7 +661,7 @@
             <div class="fcard__icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg>
             </div>
-            <h3 class="fcard__title">«Full text not available»? Это не наша проблема.</h3>
+            <h3 class="fcard__title">«Полный текст недоступен»? Это не наша проблема.</h3>
             <p class="fcard__text">5 источников открытых полных текстов: arXiv → Semantic Scholar → OpenAlex → Unpaywall → Crossref, плюс headless Chrome против антибот-защит издателей (MDPI, Springer, ScienceDirect).</p>
           </article>
           <article class="fcard">
@@ -710,7 +692,7 @@
     <!-- ===== DOWNLOAD ===== -->
     <section class="download section" id="download">
       <div class="container">
-        <h2 class="section__title reveal">Скачать <span class="grad-text">papeer v1.0.0</span></h2>
+        <h2 class="section__title reveal">Скачать <span class="grad-text">papeer</span></h2>
         <p class="section__sub reveal">Всё бесплатно. Всё под вашу платформу. Одна кнопка — и вы в деле.</p>
 
         <div class="os-grid reveal-group">
@@ -1053,8 +1035,7 @@
         <a href="https://github.com/qnqatop/papeer/blob/main/LICENSE" target="_blank" rel="noopener">Лицензия MIT</a>
       </nav>
       <div class="footer__meta">
-        <span class="footer__ver">v1.0.0</span>
-        <p>© 2026 papeer · Открытый код под лицензией MIT</p>
+                <p>© 2026 papeer · Открытый код под лицензией MIT</p>
         <p class="footer__made">Сделано с любовью к науке — и на Go.</p>
       </div>
     </div>
