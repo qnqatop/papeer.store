@@ -239,6 +239,10 @@
               <span class="btn__label">Исходный код</span>
             </a>
           </div>
+          <!-- Живой счётчик скачиваний (заполняется в js/main.js) -->
+          <p class="hero__dl" data-dl-total hidden>
+            <span class="hero__dl-num" data-dl-total-num>0</span> скачиваний за всё время
+          </p>
                     <div class="shields reveal">
             <a href="https://github.com/qnqatop/papeer/releases" target="_blank" rel="noopener">
               <img src="https://img.shields.io/github/v/release/qnqatop/papeer" alt="Версия последнего релиза на GitHub" loading="lazy" height="22">
@@ -695,6 +699,12 @@
         <h2 class="section__title reveal">Скачать <span class="grad-text">papeer</span></h2>
         <p class="section__sub reveal">Всё бесплатно. Всё под вашу платформу. Одна кнопка — и вы в деле.</p>
 
+        <!-- Живой счётчик скачиваний с GitHub Releases (заполняется в js/main.js). -->
+        <p class="dl-total reveal" data-dl-total hidden>
+          <span class="dl-total__num" data-dl-total-num>0</span>
+          <span class="dl-total__label">скачиваний за всё время</span>
+        </p>
+
         <div class="os-grid reveal-group">
           <article class="os-card" data-os-card="macos">
             <span class="os-card__badge">Ваша система</span>
@@ -703,6 +713,7 @@
             </div>
             <h3 class="os-card__name">macOS</h3>
             <p class="os-card__spec">Universal · Intel + Apple Silicon</p>
+            <p class="os-card__dl" data-dl-count="macos" hidden></p>
             <a href="https://github.com/qnqatop/papeer/releases/latest/download/papeer-macos-universal.zip" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic data-dl="macos"><span class="btn__label">Скачать для macOS</span></a>
           </article>
 
@@ -713,6 +724,7 @@
             </div>
             <h3 class="os-card__name">Windows</h3>
             <p class="os-card__spec">x64 · установщик и portable</p>
+            <p class="os-card__dl" data-dl-count="windows" hidden></p>
             <a href="https://github.com/qnqatop/papeer/releases/latest/download/papeer-windows-amd64.zip" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic data-dl="windows"><span class="btn__label">Скачать для Windows</span></a>
           </article>
 
@@ -723,6 +735,7 @@
             </div>
             <h3 class="os-card__name">Linux</h3>
             <p class="os-card__spec">amd64 · .AppImage / .deb / .rpm</p>
+            <p class="os-card__dl" data-dl-count="linux" hidden></p>
             <a href="https://github.com/qnqatop/papeer/releases/latest/download/papeer-linux-amd64.tar.gz" target="_blank" rel="noopener" class="btn btn--primary btn--block btn--magnetic" data-magnetic data-dl="linux"><span class="btn__label">Скачать для Linux</span></a>
           </article>
         </div>

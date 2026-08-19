@@ -1240,6 +1240,45 @@ kbd {
   margin-bottom: 6px;
 }
 .os-card__spec { color: var(--dim); font-size: 0.82rem; margin-bottom: 22px; font-family: var(--font-mono); }
+.os-card__dl {
+  color: var(--dim);
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  margin: -14px 0 18px;
+  opacity: 0.85;
+}
+
+/* Общий счётчик скачиваний под подзаголовком секции */
+.dl-total {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  margin: 4px auto 34px;
+  padding: 8px 18px;
+  border: 1px solid var(--line-soft);
+  border-radius: 999px;
+}
+.dl-total__num {
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
+.dl-total__label { color: var(--dim); font-size: 0.85rem; }
+
+/* Компактный счётчик в hero под кнопками */
+.hero__dl {
+  margin: 16px 0 0;
+  color: var(--dim);
+  font-size: 0.88rem;
+}
+.hero__dl-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--fg);
+  font-variant-numeric: tabular-nums;
+}
 
 /* install notes */
 .install {

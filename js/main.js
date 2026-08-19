@@ -359,6 +359,92 @@
     }
   }
 
+   (function () {
+    var API = 'https://api.github.com/repos/qnqatop/papeer/releases?per_page=100';
+    var CACHE_KEY = 'papeer_dl_stats_v1';
+    var TTL = 60 * 60 * 1000; // 1 час
+
+    var totalWraps = $$('[data-dl-total]');   // и в hero, и в секции «Скачать»
+    if (!totalWraps.length) return;
+
+    function osFromName(name) {
+      var n = (name || '').toLowerCase();
+      if (/mac|darwin|osx/.test(n)) return 'macos';
+      if (/win/.test(n)) return 'windows';
+      if (/linux|appimage|\.deb|\.rpm|tar\.gz/.test(n)) return 'linux';
+      return null;
+    }
+
+    function fmt(n) {
+      // Пробелы-разделители тысяч: 12345 -> "12 345".
+      return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+
+    // Плавный счётчик от 0 до value.
+    function animateCount(el, value) {
+      if (reduceMotion || value <= 0) { el.textContent = fmt(value); return; }
+      var start = null, dur = 900;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt(Math.round(value * eased));
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function render(stats) {
+      if (!stats || !stats.total) return;
+      totalWraps.forEach(function (wrap) {
+        wrap.hidden = false;
+        var num = $('[data-dl-total-num]', wrap);
+        if (num) animateCount(num, stats.total);
+      });
+      $$('[data-dl-count]').forEach(function (el) {
+        var key = el.getAttribute('data-dl-count');
+        var n = stats.perOS[key] || 0;
+        if (n <= 0) return;
+        el.textContent = '↓ ' + fmt(n) + ' скачиваний';
+        el.hidden = false;
+      });
+    }
+
+    function computeStats(releases) {
+      var total = 0;
+      var perOS = { macos: 0, windows: 0, linux: 0 };
+      (releases || []).forEach(function (rel) {
+        (rel.assets || []).forEach(function (a) {
+          var c = a.download_count || 0;
+          total += c;
+          var os = osFromName(a.name);
+          if (os) perOS[os] += c;
+        });
+      });
+      return { total: total, perOS: perOS };
+    }
+
+    // Пробуем отдать из кэша сразу (моментальный рендер без сети).
+    try {
+      var cached = JSON.parse(sessionStorage.getItem(CACHE_KEY) || 'null');
+      if (cached && (Date.now() - cached.t) < TTL) {
+        render(cached.stats);
+        return;
+      }
+    } catch (e) { /* кэш недоступен — просто идём в сеть */ }
+
+    fetch(API, { headers: { Accept: 'application/vnd.github+json' } })
+      .then(function (r) { return r.ok ? r.json() : Promise.reject(r.status); })
+      .then(function (releases) {
+        var stats = computeStats(releases);
+        try {
+          sessionStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), stats: stats }));
+        } catch (e) { /* приватный режим / переполнение — не критично */ }
+        render(stats);
+      })
+      .catch(function () { /* сеть/лимит/офлайн — блок просто остаётся скрытым */ });
+  })();
+
   /* ---------------- install notes toggle ---------------- */
   var installToggle = $('#installToggle');
   var installBody = $('#installBody');
